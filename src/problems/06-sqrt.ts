@@ -3,7 +3,7 @@ import { randomInt } from "../utils";
 
 export default (): Problem => {
     const num1 = randomInt(0, 101);
-    let question = `\\sqrt{${num1}}`;
+    let question = `\\sqrt{${num1 * num1}}`;
     return {
         type: 0,
         question,
