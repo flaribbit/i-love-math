@@ -8,3 +8,12 @@ export const randomInt = (min: number, max?: number) => {
     }
     return Math.floor(random() * (max - min)) + min;
 }
+
+export const gcd = (a: number, b: number) => {
+    while (b !== 0) {
+        const t = b;
+        b = a % b;
+        a = t;
+    }
+    return a;
+}
