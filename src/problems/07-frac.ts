@@ -2,8 +2,8 @@ import { Problem } from "../types";
 import { random, randomInt, gcd } from "../utils";
 
 export default (): Problem => {
-    const x1 = randomInt(1, 11);
-    const x2 = randomInt(1, 11);
+    const x1 = randomInt(2, 11);
+    const x2 = randomInt(2, 11);
     const x3 = randomInt(1, 11);
     let y1 = randomInt(0, 101);
     let y2 = randomInt(0, 101);
