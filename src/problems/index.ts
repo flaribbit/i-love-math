@@ -9,10 +9,11 @@ import p07 from "./07-frac";
 import p11 from "./11-quad";
 import p41 from "./41-det";
 import p42 from "./42-det2";
+import p43 from "./43-linear2";
 
 const problems = [
     p01, p02, p03, p04, p05, p06, p07,
     p11,
-    p41, p42,
+    p41, p42, p43
 ];
 export default () => problems[randomInt(problems.length)]();
