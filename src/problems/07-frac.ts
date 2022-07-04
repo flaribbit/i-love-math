@@ -1,7 +1,8 @@
 import { Problem } from "../types";
 import { random, randomInt, gcd } from "../utils";
 
-export default (): Problem => {
+export const name = '分数加减法';
+export const get = (): Problem => {
     const x1 = randomInt(2, 11);
     const x2 = randomInt(2, 11);
     const x3 = randomInt(1, 11);

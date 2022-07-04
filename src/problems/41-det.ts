@@ -1,7 +1,8 @@
 import { Problem } from "../types";
 import { randomInt } from "../utils";
 
-export default (): Problem => {
+export const name = '二阶行列式';
+export const get = (): Problem => {
     const a: number[] = [];
     for (let i = 0; i < 4; i++)a[i] = randomInt(10);
     const question = `\\begin{vmatrix}

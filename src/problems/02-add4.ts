@@ -1,7 +1,8 @@
 import { Problem } from "../types";
 import { randomInt } from "../utils";
 
-export default (): Problem => {
+export const name = '四位数加减法';
+export const get = (): Problem => {
     const num1 = randomInt(-10000, 10001);
     const num2 = randomInt(-10000, 10001);
     let question;

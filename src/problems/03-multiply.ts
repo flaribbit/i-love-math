@@ -1,7 +1,8 @@
 import { Problem } from "../types";
 import { randomInt } from "../utils";
 
-export default (): Problem => {
+export const name = '两位数乘法';
+export const get = (): Problem => {
     const num1 = randomInt(0, 101);
     const num2 = randomInt(0, 101);
     let question = `${num1} \\times ${num2}`;

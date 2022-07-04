@@ -1,7 +1,8 @@
 import { Problem } from "../types";
 import { randomInt } from "../utils";
 
-export default (): Problem => {
+export const name = '线性方程组';
+export const get = (): Problem => {
     const a: number[] = [];
     const x = [randomInt(-10, 11), randomInt(-10, 11)];
     for (let i = 0; i < 4; i++)a[i] = randomInt(-10, 11);
