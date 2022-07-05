@@ -6,3 +6,7 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+declare const katex: {
+  renderToString: (expression: string, options?: {}) => string,
+}

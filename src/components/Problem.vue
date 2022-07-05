@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { Problem } from '../types';
-import katex from 'katex';
-import 'katex/dist/katex.min.css';
 defineProps<{ problem: Problem }>();
 const render = (latex: string): string => {
   return katex.renderToString(latex, {
