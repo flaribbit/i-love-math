@@ -13,8 +13,8 @@ export const get = (): Problem => {
     const question = `${a}x^2 + ${b}x + ${c} = 0`
         .replaceAll('+ -', '- ')
         .replaceAll('1x', 'x')
-        .replaceAll('+ 0', '')
-        .replaceAll('+ 0x', '');
+        .replaceAll('+ 0x', '')
+        .replaceAll('+ 0', '');
     return {
         type: 0,
         question,
