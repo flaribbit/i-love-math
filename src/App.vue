@@ -8,9 +8,7 @@ const router = useRouter()
     <button @click="router.replace('/')">test</button>
     <button @click="router.replace('/play')">play</button>
   </div>
-  <div>
-    <router-view></router-view>
-  </div>
+  <router-view></router-view>
 </template>
 
 <style>

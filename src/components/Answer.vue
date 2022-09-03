@@ -1,6 +1,14 @@
 <template>
-  <input class="answer" type="text">
+  <input class="answer" type="text" v-model="text" @keydown.enter="emit('submit', text)">
 </template>
+
+<script lang="ts" setup>
+import { ref } from 'vue';
+const text = ref('');
+const emit = defineEmits<{
+  (event: 'submit', text: string): void
+}>()
+</script>
 
 <style>
 .answer {

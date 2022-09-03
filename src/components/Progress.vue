@@ -11,6 +11,7 @@ defineProps<{ value: number }>()
 
 <style>
 .progress {
+  width: 100%;
   max-width: 800px;
   height: 16px;
   border-radius: 8px;

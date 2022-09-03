@@ -1,33 +1,59 @@
 <template>
-  <div>play</div>
-  <Progress :value="0.5"></Progress>
-  <Katex class="question" tex="x^2+2x+1=0"></Katex>
-  <Answer></Answer>
+  <div class="play">
+    <Progress :value="current / list.length"></Progress>
+    <Katex class="question" :tex="list[current].question"></Katex>
+    <Answer @submit="onSubmit"></Answer>
+  </div>
 </template>
 
 <script setup lang="ts">
 import Katex from './Katex.vue';
 import Progress from './Progress.vue';
 import Answer from './Answer.vue';
+import { Problem } from '../types';
+import { problems } from '../problems';
+import { randomInt } from '../utils';
+import { ref } from 'vue';
+const list = ref<Problem[]>([]);
+const current = ref(0);
+
+const getProblems = (index: number) => {
+  list.value = [];
+  if (index === -1) {
+    const length = problems.length;
+    for (let i = 0; i < 10; i++) {
+      list.value.push(problems[randomInt(length)].get());
+    }
+  } else {
+    for (let i = 0; i < 10; i++) {
+      list.value.push(problems[index].get());
+    }
+  }
+}
+
+const onSubmit = (text: string) => {
+  current.value++;
+  if (current.value >= list.value.length) {
+    alert('done');
+  }
+}
+
+getProblems(-1);
 </script>
 
 <style>
-.app {
-  position: relative;
-  height: 100%;
-}
-
-.progress {
-  margin: 32px auto;
+.play {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .question {
   font-size: 36px;
-  margin: 64px auto;
+  flex-grow: 1;
 }
 
 .answer {
   font-size: 24px;
-  margin: 32px auto;
 }
 </style>
