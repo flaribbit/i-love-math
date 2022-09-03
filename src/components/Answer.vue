@@ -1,12 +1,13 @@
 <template>
-  <input class="answer" type="text" v-model="text" @keydown.enter="emit('submit', text)">
+  <input class="answer" type="text" :value="modelValue"
+    @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" @keydown.enter="emit('submit')">
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-const text = ref('');
+defineProps<{ modelValue: string }>()
 const emit = defineEmits<{
-  (event: 'submit', text: string): void
+  (event: 'submit'): void
+  (event: 'update:modelValue', text: string): void
 }>()
 </script>
 

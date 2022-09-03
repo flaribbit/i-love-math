@@ -2,7 +2,7 @@
   <div class="play">
     <Progress :value="current / list.length"></Progress>
     <Katex class="question" :tex="list[current].question"></Katex>
-    <Answer @submit="onSubmit"></Answer>
+    <Answer v-model="text" @submit="onSubmit"></Answer>
   </div>
 </template>
 
@@ -16,6 +16,7 @@ import { randomInt } from '../utils';
 import { ref } from 'vue';
 const list = ref<Problem[]>([]);
 const current = ref(0);
+const text = ref('');
 
 const getProblems = (index: number) => {
   list.value = [];
@@ -31,8 +32,10 @@ const getProblems = (index: number) => {
   }
 }
 
-const onSubmit = (text: string) => {
+const onSubmit = () => {
   current.value++;
+  console.log(text.value);
+  text.value = '';
   if (current.value >= list.value.length) {
     alert('done');
   }
