@@ -3,6 +3,8 @@
     <Progress :value="current / list.length"></Progress>
     <Katex class="question" :tex="list[current].question"></Katex>
     <Answer v-model="text" @submit="onSubmit"></Answer>
+    <h2>testing, comming soon</h2>
+    <Result :data="result"></Result>
   </div>
 </template>
 
@@ -10,12 +12,15 @@
 import Katex from './Katex.vue';
 import Progress from './Progress.vue';
 import Answer from './Answer.vue';
-import { Problem } from '../types';
+import Result from './Result.vue';
+import { Problem, IResult } from '../types';
 import { problems } from '../problems';
 import { randomInt } from '../utils';
 import { ref } from 'vue';
 const list = ref<Problem[]>([]);
 const current = ref(0);
+const user_answer = [];
+const result: IResult[] = [];
 const text = ref('');
 
 const getProblems = (index: number) => {
@@ -42,6 +47,13 @@ const onSubmit = () => {
 }
 
 getProblems(-1);
+for (const e of list.value) result.push({
+  question: e.question,
+  answer: e.answer.toString(),
+  user_answer: e.answer.toString(),
+  correct: true,
+});
+
 </script>
 
 <style>
