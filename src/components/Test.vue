@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ProblemVue from '../components/Problem.vue';
+import Katex from '../components/Katex.vue';
 import { Problem } from '../types';
 import { problems } from '../problems';
 import { randomInt } from '../utils';
@@ -27,7 +27,7 @@ const getProblems = (index: number) => {
     <button v-for="(p, i) in problems" @click="getProblems(i)">{{ p.name }}</button>
   </div>
   <div>
-    <ProblemVue v-for="problem in list" :problem="problem" />
+    <Katex v-for="problem in list" :tex="problem.question" />
   </div>
 </template>
 
